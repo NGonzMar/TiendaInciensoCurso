@@ -1,6 +1,12 @@
 package rf.com.tienda.util;
 
 public class ErrorMessages {
+	
+	//TODO Errores
+	/**
+	 * Nombre categoria
+	 */
+	public final static String CATERR_001 = "Error en el nombre de categoria";
 		
 	/**
 	 * Codigo de producto

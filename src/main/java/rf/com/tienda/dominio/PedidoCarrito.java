@@ -1,5 +1,5 @@
-package rf.com.tienda.dominio;
-
-public class PedidoCarrito {
-
-}
+//package rf.com.tienda.dominio;
+//
+//public class PedidoCarrito {
+//
+//}

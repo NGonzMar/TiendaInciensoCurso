@@ -29,30 +29,40 @@ import rf.com.tienda.services.ICategoriaServicio;
 
 @RestController
 @RequestMapping(path="/categoria")
-public class CategoriaController {
+public class CategoriaController implements ICategoriaController{
 	
-	@Autowired
+//	@GetMapping("/hola")
+//	public String prueba() {
+//		return "hola";
+//	}
+	
+	@Autowired 
 	private ICategoriaServicio iCategoriaServicio;
 	
+	@Override
 	@GetMapping(path = "/all")
 	public List<Categoria> listaCategoria() {
 		return iCategoriaServicio.leerCategorias();
 	}
 	
+	@Override
 	@PostMapping(path = "/add")
 	public @ResponseBody String addNewCategoria (@RequestBody Categoria categoria) {
 		iCategoriaServicio.crearCategoria(categoria);
 		return "Saved";
 	}
 	
+	@Override
 	@PutMapping(path = "/{id}")
 	public ResponseEntity<?> updateCategoria(@RequestBody Categoria cateogiraNueva, @PathVariable Integer id) throws DomainException{
 		return iCategoriaServicio.actualizarCategoria(cateogiraNueva, id);
 	}
 	
+	@Override
 	@DeleteMapping(path = "/{id}")
 	public ResponseEntity<?> deleteCategoria(@PathVariable Integer id) {
 		return iCategoriaServicio.eliminarCategoria(id);
 	}
+	
 
 }
