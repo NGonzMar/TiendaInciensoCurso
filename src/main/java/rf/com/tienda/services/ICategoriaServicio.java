@@ -9,9 +9,10 @@ import rf.com.tienda.exception.DomainException;
 
 public interface ICategoriaServicio {
 	
-	public abstract List<Categoria> leerCategorias();
-	public abstract Categoria crearCategoria(Categoria categoria);
-	public abstract ResponseEntity actualizarCategoria(Categoria categoriaNueva, Integer id) throws DomainException;
-	public abstract ResponseEntity eliminarCategoria(Integer id);
+	List<Categoria> leerCategorias();
+	Categoria crearCategoria(Categoria categoria);
+	ResponseEntity actualizarCategoria(Categoria categoriaNueva, Integer id) throws DomainException;
+	ResponseEntity eliminarCategoria(Integer id);
+	ResponseEntity buscarIdCategoria(Integer id);
 
 }

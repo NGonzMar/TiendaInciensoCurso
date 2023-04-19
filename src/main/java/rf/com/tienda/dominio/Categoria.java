@@ -15,7 +15,8 @@ import rf.com.tienda.util.Validator;
 @Table(schema = "NGM_alumno", name = "CATEGORIA")
 public class Categoria {
 	
-	@Id //clave primaria
+	//Atributos de la clase con sus anotaciones correspondientes
+	@Id
 	@GeneratedValue(strategy = GenerationType.TABLE)
 	private int id_categoria;			//identificador categoria
 	
@@ -26,15 +27,11 @@ public class Categoria {
 	private String cat_descripcion;		//descripcion de la categoria
 	
 	
+	//Constructor vacío de la clase
 	public Categoria(){
 		
 	}
 	
-	
-	public boolean isValid(){	
-		return !Validator.isVacio(cat_nombre) &&
-				id_categoria > 0;
-	}
 	
 	/**
 	 * Getter para identificador de categoria
@@ -97,44 +94,70 @@ public class Categoria {
 			throw new DomainException(ErrorMessages.CATERR_001);
 		}
 	}
-
+	
+	/**
+	 * Método para validar si la instancia de la clase es válida
+	 * @return true si la instancia es válida, false en caso contrario
+	 */
+	public boolean isValid(){	
+		return !Validator.isVacio(cat_nombre) &&
+				id_categoria > 0;
+	}
 
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((cat_descripcion == null) ? 0 : cat_descripcion.hashCode());
-		result = prime * result + ((cat_nombre == null) ? 0 : cat_nombre.hashCode());
-		result = prime * result + id_categoria;
-		return result;
+	    final int prime = 31; // número primo utilizado en la fórmula hash
+	    int result = 1; // valor inicial del código hash
+	    
+	    // Se calcula el valor hash de cada campo, utilizando 0 si el campo es nulo
+	    result = prime * result + ((cat_descripcion == null) ? 0 : cat_descripcion.hashCode());
+	    result = prime * result + ((cat_nombre == null) ? 0 : cat_nombre.hashCode());
+	    result = prime * result + id_categoria;
+	    
+	    // Se devuelve el valor final del código hash
+	    return result;
 	}
 
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Categoria other = (Categoria) obj;
-		if (cat_descripcion == null) {
-			if (other.cat_descripcion != null)
-				return false;
-		} else if (!cat_descripcion.equals(other.cat_descripcion))
-			return false;
-		if (cat_nombre == null) {
-			if (other.cat_nombre != null)
-				return false;
-		} else if (!cat_nombre.equals(other.cat_nombre))
-			return false;
-		if (id_categoria != other.id_categoria)
-			return false;
-		return true;
+	    if (this == obj) return true;
+
+	    if (obj == null) return false;
+
+	    //Verifica si el objeto que se está comparando es una instancia de la clase Categoria
+	    if (getClass() != obj.getClass()) return false;
+
+	    //Convierte el objeto a una instancia de la clase Categoria
+	    Categoria other = (Categoria) obj;
+
+	    //Compara los valores de los atributos id_categoria, cat_nombre y cat_descripcion
+	    if (cat_descripcion == null) {
+	        if (other.cat_descripcion != null)
+	            return false;
+
+	    } else if (!cat_descripcion.equals(other.cat_descripcion))
+	        return false;
+
+	    if (cat_nombre == null) {
+	        if (other.cat_nombre != null)
+	            return false;
+
+	    } else if (!cat_nombre.equals(other.cat_nombre))
+	        return false;
+
+	    if (id_categoria != other.id_categoria)
+	        return false;
+
+	    //Si los valores de todos los atributos son iguales, devuelve true
+	    return true;
 	}
 
 
+	/**
+	 * Retorna una cadena que representa la categoría, con el formato "Categoria [id_categoria=XXX, cat_nombre=XXX, cat_descripcion=XXX]"
+	 * @return una cadena que representa la categoría
+	 */
 	@Override
 	public String toString() {
 		return "Categoria [id_categoria=" + id_categoria + ", cat_nombre=" + cat_nombre + ", cat_descripcion="

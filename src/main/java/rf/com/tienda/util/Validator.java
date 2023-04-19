@@ -40,21 +40,6 @@ public class Validator {
 	 */
 	private final static int LONGITUD_DNI = 12;
 
-	/* ***************************************************************************************
-	 * NOMBRE: isAlfanumeric                                                                 *
-	 * 
-	 * DESCRIPCI�N: *//**
-	 * 		Permite verificar que el texto pasado solo contiene caracters alfanum�ricos
-	 * 
-	 * @param texto String a verificar que solo tenga car�cteres alfanum�ricos
-	 * 
-	 * @return  true, si cumple solo contiene caracters alfanum�ricos. <br> 
-	 * 			false en caso contrario
-	 * FECHA: Enero 2023
-	 * 
-	 * AUTOR: Miguel Garcia - Barcelona
-	 * 
-	 * **************************************************************************************/
 	public static boolean isAlfanumeric(String texto){
 		Pattern miPattern = Pattern.compile(ALFANUMERIC_PATTERN);
 		Matcher matcher = miPattern.matcher(texto);

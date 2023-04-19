@@ -21,7 +21,7 @@ class ValidatorTest {
 	}
 
 	@Test
-	void testIsVacio() {
+	void testIsEmpty() {
 		assertAll (() -> assertTrue(Validator.isVacio("")),
 				() -> assertFalse(Validator.isVacio("Texto de prueba"))
 				);
@@ -29,7 +29,7 @@ class ValidatorTest {
 	}
 
 	@Test
-	void testCumplePhoneNumber() {
+	void testPhoneNumber() {
 		assertAll (() -> assertTrue(Validator.cumplePhoneNumber("123456789")),
 				() -> assertFalse(Validator.cumplePhoneNumber("123456789101112131415")),
 				() -> assertFalse(Validator.cumplePhoneNumber("Prueba")),
@@ -38,7 +38,7 @@ class ValidatorTest {
 	}
 
 	@Test
-	void testIsEmailValido() {
+	void testIsValidEmail() {
 		assertAll (() -> assertTrue(Validator.isEmailValido("prueba@prueba.com")),
 				() -> assertFalse(Validator.isEmailValido("prueba")),
 				() -> assertFalse(Validator.isEmailValido("prueba@")),
@@ -48,7 +48,7 @@ class ValidatorTest {
 	}
 
 	@Test
-	void testCumpleDNI() {
+	void testDNI() {
 		assertAll (() -> assertTrue(Validator.cumpleDNI("11.123.123-L")),
 				() -> assertFalse(Validator.cumpleDNI("1111111111L")),
 				() -> assertFalse(Validator.cumpleDNI("123L")),
@@ -57,7 +57,7 @@ class ValidatorTest {
 	}
 
 	@Test
-	void testCumpleRangoIntIntInt() {
+	void testRangoIntIntInt() {
 		assertAll (() -> assertTrue(Validator.cumpleRango(5, 1, 10)),
 				() -> assertFalse(Validator.cumpleRango(1, 2, 3)),
 				() -> assertFalse(Validator.cumpleRango(10, 4, 5))
@@ -65,7 +65,7 @@ class ValidatorTest {
 	}
 
 	@Test
-	void testCumpleRangoDoubleIntInt() {
+	void testRangoDoubleIntInt() {
 		assertAll (() -> assertTrue(Validator.cumpleRango(5.5, 1, 10)),
 				() -> assertFalse(Validator.cumpleRango(1.8, 2, 3)),
 				() -> assertFalse(Validator.cumpleRango(10.23, 4, 5))
@@ -73,21 +73,21 @@ class ValidatorTest {
 	}
 
 	@Test
-	void testCumpleLongitudMin() {
+	void testLenghtMin() {
 		assertAll (() -> assertTrue(Validator.cumpleLongitudMin("Prueba", 5)),
 				() -> assertFalse(Validator.cumpleLongitudMin("Prueba", 20))
 				);
 	}
 
 	@Test
-	void testCumpleLongitudMax() {
+	void testLenghtMax() {
 		assertAll (() -> assertTrue(Validator.cumpleLongitudMax("Prueba", 20)),
 				() -> assertFalse(Validator.cumpleLongitudMax("Prueba", 3))
 				);
 	}
 
 	@Test
-	void testCumpleLongitud() {
+	void testLenght() {
 		assertAll (() -> assertTrue(Validator.cumpleLongitud("Prueba", 3, 10)),
 				() -> assertFalse(Validator.cumpleLongitud("Prueba", 10, 20)),
 				() -> assertFalse(Validator.cumpleLongitud("Prueba", 3, 4))
@@ -113,7 +113,7 @@ class ValidatorTest {
 	}
 
 	@Test
-	void testEsFechaValida() {
+	void testIsValidDate() {
 
 		assertAll (() -> assertTrue(Validator.esFechaValida("2022-04-12")),
 				() ->assertTrue(Validator.esFechaValida("2001-12-29")),
@@ -128,7 +128,7 @@ class ValidatorTest {
 	}
 
 	@Test
-	void testEsPasswordValida() {
+	void testIsValidPassword() {
 		assertAll (() -> assertTrue(Validator.esPasswordValida("Prueba1234#")),
 				() -> assertFalse(Validator.esPasswordValida("prueba")),
 				() -> assertFalse(Validator.esPasswordValida("Prueba1234")),

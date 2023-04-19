@@ -16,5 +16,7 @@ public interface ICategoriaController {
 	public abstract ResponseEntity updateCategoria(Categoria categoriaNueva, Integer id) throws DomainException;
 
 	public abstract ResponseEntity deleteCategoria(Integer id);
+	
+	public abstract ResponseEntity buscarIdCategoria(Integer id);
 
 }
