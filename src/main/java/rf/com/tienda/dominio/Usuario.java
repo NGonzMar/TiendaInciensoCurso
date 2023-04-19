@@ -1,6 +1,9 @@
 package rf.com.tienda.dominio;
 
+import java.time.LocalDate;
+
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,32 +22,28 @@ public class Usuario{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.TABLE)
-	@JsonProperty("id")
 	private int id_usuario;					//identificador de usuario
 
-	@Column(nullable = false, columnDefinition = "VARCHAR(100)")
-	@JsonProperty("nombre")
+	@Column(nullable = false, columnDefinition = "VARCHAR(100)", name = "nombre")
 	private String user_nombre;				//nombre del usuario
 
-	@Column(nullable = false, columnDefinition = "VARCHAR(100)")
-	@JsonProperty("email")
+	@Column(nullable = false, columnDefinition = "VARCHAR(100)", name = "email")
 	private String user_email;				//email del usuario
 
-	@Column(nullable = false, columnDefinition = "VARCHAR(20)")
-	@JsonProperty("password")
+	@Column(nullable = false, columnDefinition = "VARCHAR(20)", name = "password")
 	private String user_pass;				//contraseña del usuario
 
-	@Column(nullable = false, columnDefinition = "NUMERIC")
+	@Column(nullable = false, columnDefinition = "NUMERIC", name = "tipo")
 	private int id_tipo; 					//tipo de usuario
 
-	@Column(name = "user_dni")
-	private String user_dni; //numero_dni;
+	@Column(nullable = false, columnDefinition = "VARCHAR(12)", name = "dni")
+	private String user_dni; 				//numero de dni del usuario
 
-	@Column(name = "user_fecAlta")
-	private LocalDate user_fecAlta; //user fecha de alta 
+	@Column(nullable = false, columnDefinition = "DATE", name = "fecha_alta")
+	private LocalDate user_fecAlta; 		//fecha de alta usuario 
 
-	@Column(name = "user_fecConfirmacion")
-	private LocalDate user_fecConfirmacion;
+	@Column(nullable = false, columnDefinition = "DATE", name = "fecha_confirmacion")
+	private LocalDate user_fecConfirmacion;	//fecha confirmacion usuario
 
 	@Embedded
 	@Column
